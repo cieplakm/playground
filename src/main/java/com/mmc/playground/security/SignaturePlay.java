@@ -17,8 +17,8 @@ import java.util.Base64;
 public class SignaturePlay {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, CertificateException, KeyStoreException, IOException, UnrecoverableEntryException, InvalidKeyException, SignatureException {
-        KeyStore keyStore = CertificatePlay.loadKeyStore("main_certificate.jks", "ksPass");
-        KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry("main", new KeyStore.PasswordProtection("pkPass".toCharArray()));
+        KeyStore keyStore = CertificatePlay.loadKeyStore("cert.jks", "pass");
+        KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry("myCert", new KeyStore.PasswordProtection("pkPass".toCharArray()));
         PrivateKey privateKey = privateKeyEntry.getPrivateKey();
 
         System.out.println(Base64.getEncoder().encodeToString(privateKey.getEncoded()));
@@ -27,12 +27,12 @@ public class SignaturePlay {
         signature.initSign(privateKey, new SecureRandom());
         signature.update("Message".getBytes());
 
-
         byte[] sign = signature.sign();
 
+        System.out.println(Base64.getEncoder().encodeToString(sign));
 
         signature = Signature.getInstance("SHA256withRSA");
-        signature.initVerify(keyStore.getCertificate("main"));
+        signature.initVerify(keyStore.getCertificate("myCert"));
         signature.update("Message".getBytes());
 
         System.out.println(signature.verify(sign));

@@ -1,0 +1,4 @@
+package withoutqualifier;
+
+interface DifficultAbstraction {
+}

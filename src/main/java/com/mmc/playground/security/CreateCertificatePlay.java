@@ -1,15 +1,32 @@
 package com.mmc.playground.security;
 
-import sun.security.x509.*;
+import sun.security.x509.AlgorithmId;
+import sun.security.x509.CertificateAlgorithmId;
+import sun.security.x509.CertificateSerialNumber;
+import sun.security.x509.CertificateValidity;
+import sun.security.x509.CertificateVersion;
+import sun.security.x509.CertificateX509Key;
+import sun.security.x509.X500Name;
+import sun.security.x509.X509CertImpl;
+import sun.security.x509.X509CertInfo;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.security.*;
+import java.security.InvalidKeyException;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.SignatureException;
+import java.security.UnrecoverableEntryException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
-import java.util.Base64;
 import java.util.Date;
 
 
@@ -47,7 +64,7 @@ public class CreateCertificatePlay {
 
         X509CertInfo certInfo = new X509CertInfo();
 
-        AlgorithmId algorithmId = new AlgorithmId(AlgorithmId.sha256WithRSAEncryption_oid);
+        AlgorithmId algorithmId = new AlgorithmId(AlgorithmId.RSAEncryption_oid);
 
         X500Name issuer = new X500Name("CN=" + issuerName);
         X500Name subject = new X500Name("CN=" + subjectName);

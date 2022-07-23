@@ -17,7 +17,7 @@ import java.util.Base64;
 public class SignaturePlay {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, CertificateException, KeyStoreException, IOException, UnrecoverableEntryException, InvalidKeyException, SignatureException {
-        KeyStore keyStore = CertificatePlay.loadKeyStore("cert.jks", "pass");
+        KeyStore keyStore = LoadCertificatePlay.loadKeyStore("cert.jks", "pass");
         KeyStore.PrivateKeyEntry privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry("myCert", new KeyStore.PasswordProtection("pkPass".toCharArray()));
         PrivateKey privateKey = privateKeyEntry.getPrivateKey();
 

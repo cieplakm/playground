@@ -36,6 +36,6 @@ class ExtendedBase extends Base {
     @Override
     void theThirdWithoutAnyException() {
         super.theThirdWithoutAnyException();
-        // overridden method CANNOT throw any exception
+        // overridden without trowing any exception CANNOT throw any exception
     }
 }

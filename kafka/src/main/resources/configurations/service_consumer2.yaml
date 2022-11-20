@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: consumer2
+spec:
+  selector:
+    app: kafka #points to template.metadata.labels deployment/pod/etc.
+  ports:
+    - port: 29094
+      targetPort: 29094
+      name: name29094
+
+  type: LoadBalancer

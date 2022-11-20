@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: uuid-rc
+spec:
+  replicas: 4
+  selector:
+    app: uuid-app
+  template:
+    metadata:
+      labels:
+        app: uuid-app
+    spec:
+      containers:
+        - name: uuid-container-name
+          image: mmcdevment/uuid
+          ports:
+            - containerPort: 8088

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: uuid-service-lb
+spec:
+  selector:
+    app: uuid #points to template.metadata.labels deployment/pod/etc.
+  ports:
+    - port: 8088
+      targetPort: 8088
+  type: LoadBalancer

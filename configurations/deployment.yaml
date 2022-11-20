@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uuid
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: uuid
+
+  template:
+    metadata:
+      labels:
+        app: uuid
+    spec:
+      containers:
+        - name: zookeeper-pod
+          image: wurstmeister/zookeeper
+          ports:
+            - containerPort: 2181
+        - name: kafka-pod
+          image: wurstmeister/kafka
+          env:
+            - name: KAFKA_PORT
+              value: "9094"
+            - name: KAFKA_ZOOKEEPER_CONNECT
+              value: "localhost:2181"
+            - name: KAFKA_LISTENER_SECURITY_PROTOCOL_MAP
+              value: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+            - name: KAFKA_ADVERTISED_LISTENERS
+              value: INSIDE://localhost:9094,OUTSIDE://localhost:29093
+            - name: KAFKA_INTER_BROKER_LISTENER_NAME
+              value: INSIDE
+            - name: KAFKA_LISTENERS
+              value: INSIDE://:9094,OUTSIDE://:29093
+          ports:
+            - containerPort: 29093
+            - containerPort: 9094

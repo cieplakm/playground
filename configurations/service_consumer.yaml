@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: consumer
+spec:
+  selector:
+    app: uuid #points to template.metadata.labels deployment/pod/etc.
+  ports:
+    - port: 29093
+      targetPort: 29093
+      name: name29093
+
+  type: LoadBalancer

@@ -1,4 +1,0 @@
-package withoutqualifier;
-
-interface DifficultAbstraction {
-}

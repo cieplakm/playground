@@ -1,7 +1,6 @@
 # RUNNING
 # docker run -v /var/run/dokcer.sock:/var/run/dokcer.sock -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 5000:5000 -d --restart always
 FROM jenkins/jenkins:latest
-ARG docker_version=5:20.10.17~3-0~ubuntu-focal
 USER root
 RUN apt-get update && apt-get install -y apt-transport-https
 RUN apt-get install ca-certificates curl gnupg lsb-release -y

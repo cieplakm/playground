@@ -19,7 +19,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.mmc.playground</groupId>
+            <groupId>com.mmc.playground.module</groupId>
             <artifactId>domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

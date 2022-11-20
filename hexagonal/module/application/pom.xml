@@ -22,19 +22,19 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.mmc.playground</groupId>
+            <groupId>com.mmc.playground.module</groupId>
             <artifactId>api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>com.mmc.playground</groupId>
+            <groupId>com.mmc.playground.module</groupId>
             <artifactId>domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>com.mmc.playground</groupId>
+            <groupId>com.mmc.playground.module</groupId>
             <artifactId>infrastructure</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
@@ -145,7 +145,7 @@
                 <executions>
                     <execution>
                         <id>build-docker-image</id>
-                        <phase>package</phase>
+                        <phase>install</phase>
                         <goals>
                             <goal>build</goal>
                         </goals>

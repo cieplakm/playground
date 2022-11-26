@@ -6,6 +6,7 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MongoDBContainer;
+import org.testcontainers.containers.Network;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.utility.DockerImageName;
 
@@ -16,6 +17,7 @@ public class ContainerizedMongoDbTest {
 
     @Container
     public static MongoDBContainer MONGO_DB_CONTAINER = new MongoDBContainer(DockerImageName.parse("mongo:5.0.13"))
+            .withNetworkMode("host")
             .withReuse(true);
 
     @DynamicPropertySource

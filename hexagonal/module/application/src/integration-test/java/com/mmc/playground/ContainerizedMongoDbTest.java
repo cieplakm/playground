@@ -17,7 +17,7 @@ public class ContainerizedMongoDbTest {
 
     @Container
     public static MongoDBContainer MONGO_DB_CONTAINER = new MongoDBContainer(DockerImageName.parse("mongo:5.0.13"))
-            .withNetworkMode("host")
+            .withNetworkMode("myNet")
             .withReuse(true);
 
     @DynamicPropertySource

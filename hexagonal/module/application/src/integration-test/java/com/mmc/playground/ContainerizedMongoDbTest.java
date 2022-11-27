@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.extension.ExtensionContext.Namespace.GLOBAL;
 public class ContainerizedMongoDbTest {
 
     @Container
-    public static MongoDBContainer MONGO_DB_CONTAINER = new MongoDBContainer(DockerImageName.parse("mongo:5.0.13"))
+    public static MongoDBContainer MONGO_DB_CONTAINER = new MongoDBContainer("mongo:5.0.13")
             .withNetworkMode("bridge")
             .withReuse(true);
 

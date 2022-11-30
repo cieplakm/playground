@@ -1,5 +1,5 @@
 # RUNNING
-# docker run -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 5000:5000 -d --restart always <img>
+# docker run -v /var/run/docker.sock.raw:/var/run/docker.sock -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 5000:5000 -d --restart always <img>
 FROM jenkins/jenkins:latest
 USER root
 RUN apt-get update && apt-get install -y apt-transport-https

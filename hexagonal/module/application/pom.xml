@@ -150,7 +150,7 @@
                                 <contextDir>${project.basedir}</contextDir>
                                 <args>
                                     <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                                    <OS_LOGIN>${env.OS_LOGIN}</OS_LOGIN>
+<!--                                    <OS_LOGIN>${env.OS_LOGIN}</OS_LOGIN>-->
                                 </args>
                             </build>
                         </image>

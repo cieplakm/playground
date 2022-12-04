@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(classes = {TestApplication.class})
 @TestPropertySource(value = "classpath:application-test.properties")
-public class LivenessControllerTest {
+public class LivenessControllerIT {
 
     @LocalServerPort
     private int port;

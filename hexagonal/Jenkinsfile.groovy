@@ -28,6 +28,15 @@ pipeline {
                 }
             }
         }
+        stage('deploy secrets') {
+            steps {
+                dir("hexagonal/module/application") {
+                    sh 'flyctl secrets set APP_NAME=app_anaconda_from_$(date +%Y%m%d%H%M%S)'
+
+
+                }
+            }
+        }
         stage('deploy') {
             steps {
                 dir("hexagonal/module/application") {

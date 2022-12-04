@@ -28,5 +28,12 @@ pipeline {
                 }
             }
         }
+        stage('deploy') {
+            steps {
+                dir("hexagonal/module/application") {
+                    sh 'flyctl deploy'
+                }
+            }
+        }
     }
 }

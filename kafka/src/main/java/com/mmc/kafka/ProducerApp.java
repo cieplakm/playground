@@ -1,4 +1,4 @@
-package com.mmc.playground.kafka;
+package com.mmc.kafka;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
